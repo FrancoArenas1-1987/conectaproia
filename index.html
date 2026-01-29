@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body>
+<body data-whatsapp-number="56900000000" data-whatsapp-message="Hola ConectaProIA">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
   <!-- Encabezado con navegación principal -->
@@ -26,7 +26,9 @@
         <a href="#servicios">Servicios</a>
         <a href="#por-que">Por qué ConectaProIA</a>
         <a href="#seguridad">Seguridad</a>
-        <a href="#contacto" class="btn btn--ghost">WhatsApp</a>
+
+        <a href="#contacto" class="btn btn--ghost js-whatsapp-link">WhatsApp</a>
+
       </nav>
 
       <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav">
@@ -42,7 +44,9 @@
         <a href="#servicios">Servicios</a>
         <a href="#por-que">Por qué ConectaProIA</a>
         <a href="#seguridad">Seguridad</a>
-        <a href="#contacto" class="btn btn--primary">WhatsApp</a>
+
+        <a href="#contacto" class="btn btn--primary js-whatsapp-link">WhatsApp</a>
+
       </div>
     </div>
   </header>
@@ -57,11 +61,17 @@
           <p class="lead">
             ConectaProIA es una plataforma que facilita el contacto con profesionales locales
             (hogar, técnicos, salud, legales y más) usando WhatsApp como canal principal.
+
+          </p>
+          <p class="lead">
+            Ayuda a familias, personas y pymes que necesitan una respuesta clara y rápida,
+            especialmente cuando no saben a quién llamar.
           </p>
 
           <div class="hero-cta">
-            <!-- Nota: reemplazar el número de WhatsApp con el oficial antes de publicar. -->
-            <a class="btn btn--primary" href="https://wa.me/56900000000?text=Hola%20ConectaProIA" target="_blank" rel="noopener noreferrer">
+            <!-- Nota: actualiza el número de WhatsApp en el atributo data-whatsapp-number del <body>. -->
+            <a class="btn btn--primary js-whatsapp-link" href="#contacto">
+
               Contáctanos por WhatsApp
             </a>
             <a class="btn btn--ghost" href="#como-funciona">Ver cómo funciona</a>
@@ -122,15 +132,19 @@
           <div class="step">
             <div class="step-num" aria-hidden="true">2</div>
             <div class="step-body">
-              <h3>La IA organiza la solicitud</h3>
-              <p>Clasificamos el servicio y validamos disponibilidad con profesionales confiables.</p>
+
+              <h3>La IA analiza la necesidad</h3>
+              <p>Clasificamos el servicio, aclaramos detalles y validamos disponibilidad local.</p>
+
             </div>
           </div>
           <div class="step">
             <div class="step-num" aria-hidden="true">3</div>
             <div class="step-body">
-              <h3>Te conectamos y damos seguimiento</h3>
-              <p>Facilitamos el contacto y registramos el resultado para mejorar la experiencia.</p>
+
+              <h3>Te conectamos con profesionales confiables</h3>
+              <p>Facilitamos el contacto y hacemos seguimiento para asegurar claridad y aprendizaje.</p>
+
             </div>
           </div>
         </div>
@@ -184,6 +198,7 @@
         <div class="section-head">
           <h2>Por qué ConectaProIA</h2>
           <p>Construimos confianza con procesos simples, claros y acompañamiento real.</p>
+
         </div>
 
         <div class="grid grid--3">
@@ -199,9 +214,11 @@
             <h3>Acompañamiento humano + IA</h3>
             <p>La IA ordena la solicitud y un equipo humano cuida el seguimiento.</p>
           </article>
+
         </div>
       </div>
     </section>
+
 
     <!-- SEGURIDAD Y CONFIANZA -->
     <section class="section section--alt" id="seguridad">
@@ -209,7 +226,11 @@
         <div class="section-head">
           <h2>Seguridad y confianza</h2>
           <p>Transparencia y uso responsable de datos para proteger a quienes confían en nosotros.</p>
+
         </div>
+      </div>
+    </section>
+
 
         <div class="grid grid--3">
           <article class="feature">
@@ -225,6 +246,7 @@
             <p>Informamos el estado del piloto y los límites de cobertura antes de conectar.</p>
           </article>
         </div>
+
       </div>
     </section>
 
@@ -237,11 +259,12 @@
             Escríbenos por WhatsApp y cuéntanos tu necesidad. Responderemos dentro del horario del piloto.
           </p>
         </div>
-        <a class="btn btn--primary" href="https://wa.me/56900000000?text=Hola%20ConectaProIA" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn--primary js-whatsapp-link" href="#contacto">
           Contáctanos por WhatsApp
         </a>
       </div>
     </section>
+
 
     <!-- CONTACTO / FOOTER PREVIO -->
     <section class="section" id="contacto">
@@ -255,7 +278,9 @@
             </p>
 
             <div class="contact-actions">
-              <a class="btn btn--primary" href="https://wa.me/56900000000?text=Hola%20ConectaProIA" target="_blank" rel="noopener noreferrer">
+
+              <a class="btn btn--primary js-whatsapp-link" href="#contacto">
+
                 Abrir WhatsApp
               </a>
               <a class="btn btn--ghost" href="mailto:contacto@conectaproia.cl">contacto@conectaproia.cl</a>
@@ -291,6 +316,10 @@
         <p class="muted small">
           Sitio informativo en fase piloto. No ofrecemos ventas directas ni cobertura total.
         </p>
+
+        <p class="muted small">
+          ConectaProIA no intermedia pagos ni garantiza resultados; solo facilita el contacto.
+
       </div>
       <div class="footer-links">
         <a href="mailto:contacto@conectaproia.cl">contacto@conectaproia.cl</a>
