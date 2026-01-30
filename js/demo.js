@@ -1,6 +1,7 @@
 (function () {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const messagesEl = document.getElementById("demoChatMessages");
+
   const runButton = document.querySelector(".demo-run");
   const resetButton = document.querySelector(".demo-reset");
   const revealEl = document.querySelector(".reveal");
@@ -36,25 +37,32 @@
     "Otra comuna"
   ];
 
+
   let isRunning = false;
 
   function clearMessages() {
     messagesEl.innerHTML = "";
+
   }
 
   function addMessage(text, type) {
     const bubble = document.createElement("div");
     bubble.className = `chat-bubble chat-bubble--${type}`;
+
     bubble.innerHTML = text.replace(/\n/g, "<br>");
+
     messagesEl.appendChild(bubble);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
+
   function addBotMessage(text) {
+
     if (prefersReducedMotion) {
       addMessage(text, "bot");
       return;
     }
+
     const bubble = document.createElement("div");
     bubble.className = "chat-bubble chat-bubble--bot";
     bubble.textContent = "";
@@ -62,6 +70,7 @@
 
     let index = 0;
     const interval = window.setInterval(() => {
+
       bubble.textContent += text[index] || "";
       index += 1;
       messagesEl.scrollTop = messagesEl.scrollHeight;
@@ -71,11 +80,14 @@
     }, 16);
   }
 
+
   function addSelect(options, selected, label) {
+
     const wrapper = document.createElement("div");
     wrapper.className = "demo-form";
     const select = document.createElement("select");
     select.className = "demo-select";
+
     select.disabled = true;
     select.innerHTML = `<option value="">${label}</option>` +
       options.map((option) => `<option value="${option}">${option}</option>`).join("");
@@ -86,6 +98,7 @@
   }
 
   function addCheckboxes(items, checkedItems = []) {
+
     const wrapper = document.createElement("div");
     wrapper.className = "demo-form";
     const list = document.createElement("div");
@@ -95,8 +108,10 @@
       const label = document.createElement("label");
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
+
       checkbox.disabled = true;
       checkbox.checked = checkedItems.includes(item);
+
       label.appendChild(checkbox);
       label.appendChild(document.createTextNode(item));
       list.appendChild(label);
@@ -105,6 +120,7 @@
     wrapper.appendChild(list);
     messagesEl.appendChild(wrapper);
     messagesEl.scrollTop = messagesEl.scrollHeight;
+
   }
 
   function sleep(ms) {
@@ -198,12 +214,15 @@
   function resetDemo() {
     isRunning = false;
     runButton.disabled = false;
+
     clearMessages();
     addMessage("DEMO — Conversación ConectaProIA (kinesiología respiratoria pediátrica).", "system");
   }
 
+
   runButton.addEventListener("click", startDemo);
   resetButton.addEventListener("click", resetDemo);
+
 
   if (!prefersReducedMotion && revealEl && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver(
