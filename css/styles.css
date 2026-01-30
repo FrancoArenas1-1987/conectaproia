@@ -123,9 +123,12 @@ h1{margin:.35rem 0 .6rem;font-size:clamp(2rem,5vw,3.1rem);line-height:1.12}
 .demo-notes{margin:0;padding-left:1.1rem;color:var(--muted)}
 .demo-form{display:grid;gap:.6rem;margin-top:.4rem}
 .demo-select{width:100%;padding:.6rem .7rem;border-radius:12px;border:1px solid var(--border);background:#fff;font-size:.95rem}
+
+.demo-select:disabled{background:#f8fafc;color:var(--muted)}
 .demo-checkboxes{display:grid;gap:.45rem}
 .demo-checkboxes label{display:flex;gap:.5rem;align-items:flex-start}
 .demo-checkboxes input{margin-top:.25rem}
+.demo-checkboxes input:disabled{accent-color:#94a3b8}
 
 
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease, transform .6s ease}
@@ -164,6 +167,7 @@ h1{margin:.35rem 0 .6rem;font-size:clamp(2rem,5vw,3.1rem);line-height:1.12}
   .footer-inner{grid-template-columns:1fr auto;align-items:center}
   .footer-links{justify-content:flex-end}
 
+}
 
 @media (prefers-reduced-motion: reduce){
   .reveal{transition:none}
