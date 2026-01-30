@@ -23,10 +23,11 @@
 
       <nav class="site-nav" aria-label="Navegación principal">
         <a href="#como-funciona">Cómo funciona</a>
+
+        <a href="#demo">Demo</a>
         <a href="#servicios">Servicios</a>
         <a href="#por-que">Por qué ConectaProIA</a>
         <a href="#seguridad">Seguridad</a>
-
         <a href="#contacto" class="btn btn--ghost js-whatsapp-link">WhatsApp</a>
 
       </nav>
@@ -41,10 +42,11 @@
     <div id="mobileNav" class="mobile-nav" hidden>
       <div class="container mobile-nav__inner">
         <a href="#como-funciona">Cómo funciona</a>
+
+        <a href="#demo">Demo</a>
         <a href="#servicios">Servicios</a>
         <a href="#por-que">Por qué ConectaProIA</a>
         <a href="#seguridad">Seguridad</a>
-
         <a href="#contacto" class="btn btn--primary js-whatsapp-link">WhatsApp</a>
 
       </div>
@@ -58,12 +60,13 @@
         <div class="hero-copy">
           <p class="eyebrow">Piloto regional · Región del Biobío, Chile</p>
           <h1>Conectamos personas con profesionales confiables vía WhatsApp.</h1>
+
           <p class="lead">
             ConectaProIA es una plataforma que facilita el contacto con profesionales locales
             (hogar, técnicos, salud, legales y más) usando WhatsApp como canal principal.
-
           </p>
           <p class="lead">
+
             Ayuda a familias, personas y pymes que necesitan una respuesta clara y rápida,
             especialmente cuando no saben a quién llamar.
           </p>
@@ -151,13 +154,99 @@
       </div>
     </section>
 
+
+    <!-- DEMO INTERACTIVA -->
+    <section class="section demo" id="demo">
+      <canvas class="demo-particles" aria-hidden="true"></canvas>
+      <div class="container">
+        <div class="section-head">
+          <h2>Demo interactiva: de tu solicitud al match</h2>
+          <p>
+            Una simulación rápida para entender cómo organizamos tu necesidad y proponemos opciones.
+            No es una promesa, es una muestra del flujo.
+          </p>
+        </div>
+
+        <div class="demo-grid reveal">
+          <div class="demo-chat card">
+            <div class="demo-chat__header">
+              <span class="demo-dot demo-dot--green" aria-hidden="true"></span>
+              <span class="demo-dot" aria-hidden="true"></span>
+              <span class="demo-dot" aria-hidden="true"></span>
+              <p>WhatsApp · Simulación</p>
+            </div>
+
+            <div class="demo-chat__body" id="demoChatMessages" aria-live="polite">
+              <div class="chat-bubble chat-bubble--system">
+                Escribe tu necesidad y te mostramos cómo funciona el flujo.
+              </div>
+            </div>
+
+            <div class="demo-chat__examples">
+              <p class="muted small">Ejemplos rápidos:</p>
+              <div class="demo-chip-group" role="list">
+                <button class="demo-chip" type="button" data-demo-text="Se me cortó la luz, necesito electricista hoy.">Electricista</button>
+                <button class="demo-chip" type="button" data-demo-text="Necesito un kinesiólogo a domicilio para mi mamá.">Salud</button>
+                <button class="demo-chip" type="button" data-demo-text="Busco técnico para revisar mi notebook.">Técnico PC</button>
+              </div>
+            </div>
+
+            <div class="demo-chat__input">
+              <input id="demoInput" type="text" placeholder="Escribe tu solicitud..." aria-label="Escribe tu solicitud" />
+              <button class="btn btn--primary demo-run" type="button">Simular</button>
+            </div>
+          </div>
+
+          <div class="demo-panel">
+            <div class="bento-grid">
+              <article class="bento-card bento-card--intent">
+                <h3>Intención detectada</h3>
+                <p id="demoIntent" class="muted">Aún no hay una solicitud.</p>
+              </article>
+
+              <article class="bento-card bento-card--confidence">
+                <h3>Coincidencia probable</h3>
+                <div class="confidence-bar" role="presentation">
+                  <div class="confidence-bar__fill" id="demoConfidenceFill"></div>
+                </div>
+                <p id="demoConfidenceLabel" class="muted">Sin calcular.</p>
+              </article>
+
+              <article class="bento-card bento-card--cards">
+                <h3>Profesionales sugeridos</h3>
+                <div class="bento-cards" id="demoCards">
+                  <div class="mini-card">Profesional verificado</div>
+                  <div class="mini-card">Disponible hoy</div>
+                  <div class="mini-card">Zona Biobío</div>
+                </div>
+              </article>
+
+              <article class="bento-card bento-card--disclaimer">
+                <h3>Transparencia</h3>
+                <p class="muted">
+                  Esta es una simulación. La coordinación real se hace por WhatsApp con validación humana.
+                </p>
+                <a class="btn btn--ghost js-whatsapp-link" href="#contacto">Hacer esta solicitud</a>
+              </article>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
     <!-- SERVICIOS / CASOS DE USO -->
     <section class="section section--alt" id="servicios">
       <div class="container">
         <div class="section-head">
           <h2>Servicios y casos de uso</h2>
           <p>Ejemplos frecuentes en el piloto. La cobertura se amplía según validaciones locales.</p>
+
         </div>
+      </div>
+    </section>
+
 
         <div class="grid grid--3">
           <article class="feature">
@@ -198,7 +287,6 @@
         <div class="section-head">
           <h2>Por qué ConectaProIA</h2>
           <p>Construimos confianza con procesos simples, claros y acompañamiento real.</p>
-
         </div>
 
         <div class="grid grid--3">
@@ -214,11 +302,9 @@
             <h3>Acompañamiento humano + IA</h3>
             <p>La IA ordena la solicitud y un equipo humano cuida el seguimiento.</p>
           </article>
-
         </div>
       </div>
     </section>
-
 
     <!-- SEGURIDAD Y CONFIANZA -->
     <section class="section section--alt" id="seguridad">
@@ -226,11 +312,7 @@
         <div class="section-head">
           <h2>Seguridad y confianza</h2>
           <p>Transparencia y uso responsable de datos para proteger a quienes confían en nosotros.</p>
-
         </div>
-      </div>
-    </section>
-
 
         <div class="grid grid--3">
           <article class="feature">
@@ -246,9 +328,9 @@
             <p>Informamos el estado del piloto y los límites de cobertura antes de conectar.</p>
           </article>
         </div>
-
       </div>
     </section>
+
 
     <!-- CTA FINAL -->
     <section class="section cta" id="cta-final">
@@ -319,6 +401,7 @@
 
         <p class="muted small">
           ConectaProIA no intermedia pagos ni garantiza resultados; solo facilita el contacto.
+        </p>
 
       </div>
       <div class="footer-links">
@@ -330,5 +413,7 @@
   </footer>
 
   <script src="js/main.js" defer></script>
+  <script src="js/demo.js" defer></script>
+  <script src="js/particles.js" defer></script>
 </body>
 </html>
