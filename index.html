@@ -3,28 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="ConectaPro IA conecta personas con profesionales locales de forma rápida y confiable, vía WhatsApp. En pruebas controladas en la Región del Biobío, Chile." />
-  <meta name="theme-color" content="#0b3b6e" />
-  <title>ConectaPro IA | Profesionales locales por WhatsApp</title>
+  <meta name="description" content="ConectaProIA conecta personas con profesionales confiables vía WhatsApp. Piloto regional en Biobío, Chile." />
+  <meta name="theme-color" content="#1b4d7a" />
+  <title>ConectaProIA | Conexión confiable por WhatsApp</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body>
+<body data-whatsapp-number="56900000000" data-whatsapp-message="Hola ConectaProIA">
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
+  <!-- Encabezado con navegación principal -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <div class="brand" aria-label="ConectaPro IA">
+      <div class="brand" aria-label="ConectaProIA">
         <img class="brand-mark" src="assets/logo-mark.svg" alt="" aria-hidden="true" />
-        <span class="brand-name">ConectaPro IA</span>
+        <span class="brand-name">ConectaProIA</span>
       </div>
 
       <nav class="site-nav" aria-label="Navegación principal">
         <a href="#como-funciona">Cómo funciona</a>
-        <a href="#cobertura">Cobertura</a>
-        <a href="#estado">Estado</a>
-        <a href="#contacto" class="btn btn--ghost">Contacto</a>
+        <a href="#demo">Demo</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#por-que">Por qué ConectaProIA</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#contacto" class="btn btn--ghost js-whatsapp-link">WhatsApp</a>
       </nav>
 
       <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav">
@@ -37,96 +40,80 @@
     <div id="mobileNav" class="mobile-nav" hidden>
       <div class="container mobile-nav__inner">
         <a href="#como-funciona">Cómo funciona</a>
-        <a href="#cobertura">Cobertura</a>
-        <a href="#estado">Estado</a>
-        <a href="#contacto" class="btn btn--primary">Contacto</a>
+        <a href="#demo">Demo</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#por-que">Por qué ConectaProIA</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#contacto" class="btn btn--primary js-whatsapp-link">WhatsApp</a>
       </div>
     </div>
   </header>
 
   <main id="contenido" class="site-main" role="main">
-    <section class="hero">
+    <!-- HERO: qué es, a quién ayuda y CTA -->
+    <section class="hero" id="hero">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <p class="eyebrow">Región del Biobío · Chile</p>
-          <h1>Profesionales locales, por WhatsApp.</h1>
+          <p class="eyebrow">Piloto regional · Región del Biobío, Chile</p>
+          <h1>Conectamos personas con profesionales confiables vía WhatsApp.</h1>
           <p class="lead">
-            ConectaPro IA conecta personas con profesionales locales, de forma rápida y confiable, vía WhatsApp.
+            ConectaProIA es una plataforma que facilita el contacto con profesionales locales
+            (hogar, técnicos, salud, legales y más) usando WhatsApp como canal principal.
+          </p>
+          <p class="lead">
+            Ayuda a familias, personas y pymes que necesitan una respuesta clara y rápida,
+            especialmente cuando no saben a quién llamar.
           </p>
 
           <div class="hero-cta">
-            <a class="btn btn--primary" href="#contacto">Contacto</a>
-            <a class="btn btn--ghost" href="#estado">Ver estado del proyecto</a>
+            <!-- Nota: actualiza el número de WhatsApp en el atributo data-whatsapp-number del <body>. -->
+            <a class="btn btn--primary js-whatsapp-link" href="#contacto">
+              Contáctanos por WhatsApp
+            </a>
+            <a class="btn btn--ghost" href="#como-funciona">Ver cómo funciona</a>
           </div>
 
-          <ul class="hero-badges" aria-label="Beneficios">
-            <li>Atención por WhatsApp</li>
-            <li>Profesionales verificados</li>
-            <li>Seguimiento inteligente</li>
+          <ul class="hero-badges" aria-label="Aspectos clave">
+            <li>Atención rápida y clara</li>
+            <li>Profesionales con verificación básica</li>
+            <li>Seguimiento humano + IA</li>
           </ul>
         </div>
 
-        <div class="hero-card" aria-label="Resumen">
+        <div class="hero-card" aria-label="Resumen del piloto">
           <div class="card">
-            <h2 class="card-title">Enfoque</h2>
+            <h2 class="card-title">Estado actual</h2>
             <p class="card-text">
-              Un punto de entrada simple (WhatsApp) + un proceso guiado para conectarte con el profesional correcto.
+              Estamos en fase piloto con cupos limitados. Evaluamos calidad de respuesta y tiempos de conexión.
             </p>
             <div class="card-divider" role="separator"></div>
             <dl class="card-meta">
               <div>
-                <dt>Canal</dt>
+                <dt>Canal principal</dt>
                 <dd>WhatsApp</dd>
               </div>
               <div>
-                <dt>Zona</dt>
+                <dt>Región</dt>
                 <dd>Biobío</dd>
               </div>
               <div>
                 <dt>Estado</dt>
-                <dd>Pruebas controladas</dd>
+                <dd>Piloto en curso</dd>
               </div>
             </dl>
           </div>
         </div>
       </div>
-
-      <div class="hero-bg" aria-hidden="true"></div>
     </section>
 
-    <section class="section" id="problema">
+    <!-- CÓMO FUNCIONA: 3 pasos claros -->
+    <section class="section" id="como-funciona">
       <div class="container">
         <div class="section-head">
-          <h2>El problema</h2>
+          <h2>Cómo funciona</h2>
           <p>
-            Encontrar un profesional confiable suele implicar llamados, recomendaciones informales y tiempos de espera.
-            Además, es difícil comparar opciones y tener claridad sobre disponibilidad y respuesta.
-          </p>
-        </div>
-
-        <div class="grid grid--3">
-          <article class="feature">
-            <h3>Desconfianza</h3>
-            <p>Muchas veces no hay información clara sobre el profesional o su experiencia.</p>
-          </article>
-          <article class="feature">
-            <h3>Pérdida de tiempo</h3>
-            <p>Buscar, cotizar y coordinar puede tomar horas o días.</p>
-          </article>
-          <article class="feature">
-            <h3>Poca trazabilidad</h3>
-            <p>Cuando algo falla, no existe seguimiento ni un flujo de apoyo estructurado.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--alt" id="como-funciona">
-      <div class="container">
-        <div class="section-head">
-          <h2>La solución</h2>
-          <p>
-            Un flujo simple que prioriza claridad y confianza. Sin prometer magia: conectamos, orientamos y damos seguimiento.
+            Un flujo simple para orientar, conectar y hacer seguimiento. Sin promesas exageradas,
+            solo claridad en cada paso.
           </p>
         </div>
 
@@ -135,98 +122,215 @@
             <div class="step-num" aria-hidden="true">1</div>
             <div class="step-body">
               <h3>Escribes por WhatsApp</h3>
-              <p>Nos cuentas tu necesidad en una frase (ej. “necesito un gasfiter”).</p>
+              <p>Nos cuentas tu necesidad con contexto básico y comuna.</p>
             </div>
           </div>
           <div class="step">
             <div class="step-num" aria-hidden="true">2</div>
             <div class="step-body">
-              <h3>Orientación y match</h3>
-              <p>Identificamos el tipo de servicio y sugerimos opciones compatibles en tu comuna.</p>
+              <h3>La IA analiza la necesidad</h3>
+              <p>Clasificamos el servicio, aclaramos detalles y validamos disponibilidad local.</p>
             </div>
           </div>
           <div class="step">
             <div class="step-num" aria-hidden="true">3</div>
             <div class="step-body">
-              <h3>Seguimiento</h3>
-              <p>Registramos el estado para apoyar el cierre y aprender del resultado (mejora continua).</p>
+              <h3>Te conectamos con profesionales confiables</h3>
+              <p>Facilitamos el contacto y hacemos seguimiento para asegurar claridad y aprendizaje.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="estado">
+    <!-- DEMO INTERACTIVA -->
+    <section class="section demo" id="demo">
+      <canvas class="demo-particles" aria-hidden="true"></canvas>
       <div class="container">
-        <div class="callout" role="note" aria-label="Estado del proyecto">
-          <div class="callout-icon" aria-hidden="true">i</div>
-          <div>
-            <h2>Estado del proyecto</h2>
-            <p>
-              <strong>ConectaPro IA se encuentra actualmente en fase de pruebas controladas en la Región del Biobío, Chile.</strong>
-              Este sitio existe para informar y dar contexto. Algunas funciones pueden cambiar a medida que validamos el flujo.
-            </p>
+        <div class="section-head">
+          <h2>Demo interactiva: de tu solicitud al match</h2>
+          <p>
+            Una simulación rápida para entender cómo organizamos tu necesidad y proponemos opciones.
+            No es una promesa, es una muestra del flujo.
+          </p>
+        </div>
+
+        <div class="demo-grid reveal">
+          <div class="demo-chat card" aria-live="polite">
+            <div class="demo-chat__header">
+              <span class="demo-dot demo-dot--green" aria-hidden="true"></span>
+              <span class="demo-dot" aria-hidden="true"></span>
+              <span class="demo-dot" aria-hidden="true"></span>
+              <p>WhatsApp · Simulación</p>
+            </div>
+
+            <div class="demo-chat__body" id="demoChatMessages">
+              <div class="chat-bubble chat-bubble--system">
+                DEMO — Conversación ConectaProIA (kinesiología respiratoria pediátrica).
+              </div>
+            </div>
+
+            <div class="demo-chat__input">
+              <button class="btn btn--primary demo-run" type="button">Iniciar demo</button>
+              <button class="btn btn--ghost demo-reset" type="button">Reiniciar</button>
+            </div>
           </div>
+
+          <aside class="demo-transparency card">
+            <h3>Transparencia</h3>
+            <p class="muted">
+              Esta conversación es una simulación. La coordinación real se realiza por WhatsApp con
+              validación humana y disponibilidad local.
+            </p>
+            <ul class="demo-notes">
+              <li>ConectaProIA actúa como intermediario.</li>
+              <li>La evaluación clínica y el tratamiento son responsabilidad del profesional.</li>
+              <li>Valores, horarios y modalidad se acuerdan directamente.</li>
+            </ul>
+            <a class="btn btn--primary js-whatsapp-link" href="#contacto">Hacer esta solicitud por WhatsApp</a>
+          </aside>
         </div>
       </div>
     </section>
 
-    <section class="section" id="cobertura">
+    <!-- SERVICIOS / CASOS DE USO -->
+    <section class="section section--alt" id="servicios">
       <div class="container">
         <div class="section-head">
-          <h2>Cobertura inicial</h2>
-          <p>Partimos por Biobío. Algunas comunas destacadas para las pruebas:</p>
+          <h2>Servicios y casos de uso</h2>
+          <p>Ejemplos frecuentes en el piloto. La cobertura se amplía según validaciones locales.</p>
         </div>
 
-        <div class="tags" aria-label="Comunas">
-          <span class="tag">Concepción</span>
-          <span class="tag">Talcahuano</span>
-          <span class="tag">San Pedro de la Paz</span>
-          <span class="tag">Chiguayante</span>
-          <span class="tag">Hualpén</span>
-          <span class="tag">Coronel</span>
-          <span class="tag">Lota</span>
-          <span class="tag">Penco</span>
-          <span class="tag">Tomé</span>
-          <span class="tag">Los Ángeles</span>
-          <span class="tag">Nacimiento</span>
-          <span class="tag">Arauco</span>
+        <div class="grid grid--3">
+          <article class="feature">
+            <h3>Servicios del hogar</h3>
+            <p>Gasfitería, electricidad, cerrajería, mantención y arreglos menores.</p>
+          </article>
+          <article class="feature">
+            <h3>Salud y bienestar</h3>
+            <p>Atenciones básicas, terapias y especialistas con agenda disponible.</p>
+          </article>
+          <article class="feature">
+            <h3>Técnicos y soporte</h3>
+            <p>Reparación de equipos, climatización, redes domésticas y más.</p>
+          </article>
+          <article class="feature">
+            <h3>Servicios legales</h3>
+            <p>Orientación inicial y derivación a profesionales según la necesidad.</p>
+          </article>
+          <article class="feature">
+            <h3>Educación y apoyo</h3>
+            <p>Tutorías, clases particulares y soporte académico.</p>
+          </article>
+          <article class="feature">
+            <h3>Empresas locales</h3>
+            <p>Backoffice básico, trámites y servicios para pymes en la región.</p>
+          </article>
         </div>
 
         <p class="muted small">
-          * La cobertura puede ampliarse progresivamente según resultados de las pruebas.
+          * La disponibilidad depende de cada comuna y del avance del piloto.
         </p>
       </div>
     </section>
 
-    <section class="section section--alt" id="contacto">
+    <!-- POR QUÉ CONECTAPROIA -->
+    <section class="section" id="por-que">
+      <div class="container">
+        <div class="section-head">
+          <h2>Por qué ConectaProIA</h2>
+          <p>Construimos confianza con procesos simples, claros y acompañamiento real.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <article class="feature">
+            <h3>Confianza</h3>
+            <p>Verificamos datos básicos de los profesionales y monitoreamos la experiencia.</p>
+          </article>
+          <article class="feature">
+            <h3>Simplicidad</h3>
+            <p>Un solo canal (WhatsApp), sin formularios extensos ni pasos innecesarios.</p>
+          </article>
+          <article class="feature">
+            <h3>Acompañamiento humano + IA</h3>
+            <p>La IA ordena la solicitud y un equipo humano cuida el seguimiento.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEGURIDAD Y CONFIANZA -->
+    <section class="section section--alt" id="seguridad">
+      <div class="container">
+        <div class="section-head">
+          <h2>Seguridad y confianza</h2>
+          <p>Transparencia y uso responsable de datos para proteger a quienes confían en nosotros.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <article class="feature">
+            <h3>Uso responsable de IA</h3>
+            <p>La IA solo ayuda a organizar y derivar solicitudes, no toma decisiones finales.</p>
+          </article>
+          <article class="feature">
+            <h3>Respeto de datos</h3>
+            <p>Usamos la información estrictamente para coordinar el servicio solicitado.</p>
+          </article>
+          <article class="feature">
+            <h3>Transparencia</h3>
+            <p>Informamos el estado del piloto y los límites de cobertura antes de conectar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="section cta" id="cta-final">
+      <div class="container cta-inner">
+        <div>
+          <h2>¿Necesitas un profesional confiable?</h2>
+          <p>
+            Escríbenos por WhatsApp y cuéntanos tu necesidad. Responderemos dentro del horario del piloto.
+          </p>
+        </div>
+        <a class="btn btn--primary js-whatsapp-link" href="#contacto">
+          Contáctanos por WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACTO / FOOTER PREVIO -->
+    <section class="section" id="contacto">
       <div class="container">
         <div class="contact">
           <div>
             <h2>Contacto</h2>
             <p>
-              Si necesitas información o quieres saber cuándo se abre el acceso público,
-              escríbenos a:
+              Si necesitas más información sobre el piloto o quieres coordinar un acceso,
+              escríbenos por WhatsApp o al correo.
             </p>
 
-            <p class="contact-email">
-              <a href="mailto:contacto@conectaproia.cl">contacto@conectaproia.cl</a>
-            </p>
+            <div class="contact-actions">
+              <a class="btn btn--primary js-whatsapp-link" href="#contacto">
+                Abrir WhatsApp
+              </a>
+              <a class="btn btn--ghost" href="mailto:contacto@conectaproia.cl">contacto@conectaproia.cl</a>
+            </div>
 
             <p class="muted small">
-              Próximamente publicaremos más información. Por ahora, el foco está en validar el flujo en Biobío.
+              La atención se realiza en horario de piloto. Validamos cobertura antes de derivar.
             </p>
           </div>
 
           <div class="contact-card" aria-label="Resumen de contacto">
             <div class="card">
-              <h3 class="card-title">ConectaPro IA</h3>
-              <p class="card-text">Conectamos personas con profesionales locales vía WhatsApp.</p>
+              <h3 class="card-title">ConectaProIA</h3>
+              <p class="card-text">Conectamos personas con profesionales confiables vía WhatsApp.</p>
               <div class="card-divider" role="separator"></div>
               <ul class="list">
-                <li><strong>Estado:</strong> Pruebas controladas</li>
-                <li><strong>Zona:</strong> Región del Biobío</li>
-                <li><strong>Correo:</strong> contacto@conectaproia.cl</li>
+                <li><strong>Región:</strong> Biobío, Chile</li>
+                <li><strong>Estado:</strong> Piloto regional</li>
+                <li><strong>Canal:</strong> WhatsApp + correo</li>
               </ul>
             </div>
           </div>
@@ -235,15 +339,28 @@
     </section>
   </main>
 
+  <!-- Footer profesional con disclaimer -->
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-inner">
-      <p class="muted small">© <span id="year"></span> ConectaPro IA. Todos los derechos reservados.</p>
-      <p class="muted small">
-        Este sitio es informativo y refleja el estado actual del proyecto.
-      </p>
+      <div>
+        <p class="muted small">© <span id="year"></span> ConectaProIA. Región del Biobío, Chile.</p>
+        <p class="muted small">
+          Sitio informativo en fase piloto. No ofrecemos ventas directas ni cobertura total.
+        </p>
+        <p class="muted small">
+          ConectaProIA no intermedia pagos ni garantiza resultados; solo facilita el contacto.
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="mailto:contacto@conectaproia.cl">contacto@conectaproia.cl</a>
+        <span class="muted">·</span>
+        <a href="#seguridad">Uso responsable de datos</a>
+      </div>
     </div>
   </footer>
 
   <script src="js/main.js" defer></script>
+  <script src="js/demo.js" defer></script>
+  <script src="js/particles.js" defer></script>
 </body>
 </html>
