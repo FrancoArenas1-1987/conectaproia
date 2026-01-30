@@ -47,3 +47,10 @@ Este sitio evita:
 - Precios o ventas
 
 Está alineado con un producto en pruebas controladas.
+
+## Checklist QA final
+
+- [x] Responsive OK (mobile-first y ajustes para escritorio)
+- [x] CTAs claros hacia WhatsApp
+- [x] Sin promesas falsas ni funcionalidades inexistentes
+- [x] Navegación intuitiva y accesible
