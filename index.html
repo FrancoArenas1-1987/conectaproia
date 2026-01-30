@@ -168,7 +168,9 @@
         </div>
 
         <div class="demo-grid reveal">
-          <div class="demo-chat card">
+
+          <div class="demo-chat card" aria-live="polite">
+
             <div class="demo-chat__header">
               <span class="demo-dot demo-dot--green" aria-hidden="true"></span>
               <span class="demo-dot" aria-hidden="true"></span>
@@ -176,60 +178,34 @@
               <p>WhatsApp · Simulación</p>
             </div>
 
-            <div class="demo-chat__body" id="demoChatMessages" aria-live="polite">
-              <div class="chat-bubble chat-bubble--system">
-                Escribe tu necesidad y te mostramos cómo funciona el flujo.
-              </div>
-            </div>
 
-            <div class="demo-chat__examples">
-              <p class="muted small">Ejemplos rápidos:</p>
-              <div class="demo-chip-group" role="list">
-                <button class="demo-chip" type="button" data-demo-text="Se me cortó la luz, necesito electricista hoy.">Electricista</button>
-                <button class="demo-chip" type="button" data-demo-text="Necesito un kinesiólogo a domicilio para mi mamá.">Salud</button>
-                <button class="demo-chip" type="button" data-demo-text="Busco técnico para revisar mi notebook.">Técnico PC</button>
+            <div class="demo-chat__body" id="demoChatMessages">
+              <div class="chat-bubble chat-bubble--system">
+                DEMO — Conversación ConectaProIA (kinesiología respiratoria pediátrica).
+
               </div>
             </div>
 
             <div class="demo-chat__input">
-              <input id="demoInput" type="text" placeholder="Escribe tu solicitud..." aria-label="Escribe tu solicitud" />
-              <button class="btn btn--primary demo-run" type="button">Simular</button>
+
+              <button class="btn btn--primary demo-run" type="button">Iniciar demo</button>
+              <button class="btn btn--ghost demo-reset" type="button">Reiniciar</button>
             </div>
           </div>
 
-          <div class="demo-panel">
-            <div class="bento-grid">
-              <article class="bento-card bento-card--intent">
-                <h3>Intención detectada</h3>
-                <p id="demoIntent" class="muted">Aún no hay una solicitud.</p>
-              </article>
-
-              <article class="bento-card bento-card--confidence">
-                <h3>Coincidencia probable</h3>
-                <div class="confidence-bar" role="presentation">
-                  <div class="confidence-bar__fill" id="demoConfidenceFill"></div>
-                </div>
-                <p id="demoConfidenceLabel" class="muted">Sin calcular.</p>
-              </article>
-
-              <article class="bento-card bento-card--cards">
-                <h3>Profesionales sugeridos</h3>
-                <div class="bento-cards" id="demoCards">
-                  <div class="mini-card">Profesional verificado</div>
-                  <div class="mini-card">Disponible hoy</div>
-                  <div class="mini-card">Zona Biobío</div>
-                </div>
-              </article>
-
-              <article class="bento-card bento-card--disclaimer">
-                <h3>Transparencia</h3>
-                <p class="muted">
-                  Esta es una simulación. La coordinación real se hace por WhatsApp con validación humana.
-                </p>
-                <a class="btn btn--ghost js-whatsapp-link" href="#contacto">Hacer esta solicitud</a>
-              </article>
-            </div>
-          </div>
+          <aside class="demo-transparency card">
+            <h3>Transparencia</h3>
+            <p class="muted">
+              Esta conversación es una simulación. La coordinación real se realiza por WhatsApp con
+              validación humana y disponibilidad local.
+            </p>
+            <ul class="demo-notes">
+              <li>ConectaProIA actúa como intermediario.</li>
+              <li>La evaluación clínica y el tratamiento son responsabilidad del profesional.</li>
+              <li>Valores, horarios y modalidad se acuerdan directamente.</li>
+            </ul>
+            <a class="btn btn--primary js-whatsapp-link" href="#contacto">Hacer esta solicitud por WhatsApp</a>
+          </aside>
 
         </div>
       </div>

@@ -1,96 +1,63 @@
 (function () {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const messagesEl = document.getElementById("demoChatMessages");
-  const inputEl = document.getElementById("demoInput");
+
   const runButton = document.querySelector(".demo-run");
-  const chips = document.querySelectorAll(".demo-chip");
-  const intentEl = document.getElementById("demoIntent");
-  const confidenceFill = document.getElementById("demoConfidenceFill");
-  const confidenceLabel = document.getElementById("demoConfidenceLabel");
-  const cardsEl = document.getElementById("demoCards");
+  const resetButton = document.querySelector(".demo-reset");
   const revealEl = document.querySelector(".reveal");
 
-  if (!messagesEl || !inputEl || !runButton || !intentEl || !confidenceFill || !confidenceLabel || !cardsEl) {
-    return;
-  }
+  if (!messagesEl || !runButton || !resetButton) return;
 
-  const examples = [
-    "Se me cortó la luz, necesito electricista hoy.",
-    "Necesito un kinesiólogo a domicilio para mi mamá.",
-    "Busco técnico para revisar mi notebook."
+  const regions = [
+    "Región de Arica y Parinacota",
+    "Región de Tarapacá",
+    "Región de Antofagasta",
+    "Región de Atacama",
+    "Región de Coquimbo",
+    "Región de Valparaíso",
+    "Región Metropolitana",
+    "Región del Biobío",
+    "Región de La Araucanía",
+    "Región de Los Ríos",
+    "Región de Los Lagos",
+    "Región de Aysén",
+    "Región de Magallanes"
   ];
 
-  const intents = [
-    {
-      keywords: ["luz", "electricista", "cortó", "corte", "enchufe"],
-      label: "Electricidad domiciliaria (probable)",
-      confidence: 78,
-      cards: ["Profesional verificado", "Disponible hoy", "Zona Biobío"]
-    },
-    {
-      keywords: ["kines", "kinesiologo", "salud", "terapia", "medico"],
-      label: "Salud y bienestar (probable)",
-      confidence: 72,
-      cards: ["Profesional verificado", "Atención domiciliaria", "Agenda disponible"]
-    },
-    {
-      keywords: ["notebook", "pc", "computador", "técnico", "tecnico"],
-      label: "Soporte técnico (probable)",
-      confidence: 68,
-      cards: ["Diagnóstico inicial", "Soporte en terreno", "Zona Biobío"]
-    },
-    {
-      keywords: ["abogado", "legal", "contrato", "demanda"],
-      label: "Orientación legal (probable)",
-      confidence: 64,
-      cards: ["Orientación inicial", "Profesional verificado", "Atención agendada"]
-    },
-    {
-      keywords: ["gasfiter", "agua", "fuga", "llave"],
-      label: "Gasfitería (probable)",
-      confidence: 70,
-      cards: ["Profesional verificado", "Disponible hoy", "Zona Biobío"]
-    }
+  const comunasBiobio = [
+    "Concepción",
+    "Talcahuano",
+    "San Pedro de la Paz",
+    "Hualpén",
+    "Chiguayante",
+    "Coronel",
+    "Tomé",
+    "Penco",
+    "Los Ángeles",
+    "Otra comuna"
   ];
 
-  function detectIntent(text) {
-    const lower = text.toLowerCase();
-    const match = intents.find((intent) => intent.keywords.some((word) => lower.includes(word)));
-    return (
-      match || {
-        label: "Servicios generales (probable)",
-        confidence: 55,
-        cards: ["Profesional verificado", "Respuesta en horario de piloto", "Zona Biobío"]
-      }
-    );
-  }
+  let step = 0;
 
-  function renderResults(result) {
-    intentEl.textContent = result.label;
-    confidenceFill.style.width = `${result.confidence}%`;
-    confidenceLabel.textContent = `Coincidencia probable: ${result.confidence}%`;
+  function clearMessages() {
+    messagesEl.innerHTML = "";
 
-    cardsEl.innerHTML = "";
-    result.cards.forEach((card) => {
-      const div = document.createElement("div");
-      div.className = "mini-card";
-      div.textContent = card;
-      cardsEl.appendChild(div);
-    });
   }
 
   function addMessage(text, type) {
     const bubble = document.createElement("div");
     bubble.className = `chat-bubble chat-bubble--${type}`;
-    bubble.textContent = text;
+
+    bubble.innerHTML = text.replace(/\n/g, "<br>");
+
     messagesEl.appendChild(bubble);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
-  function simulateBotReply(text) {
-    const response = "Gracias, recibimos tu solicitud. Te compartiremos opciones confiables.";
+
+  function addBotMessage(text, delay = 400) {
     if (prefersReducedMotion) {
-      addMessage(response, "bot");
+      addMessage(text, "bot");
       return;
     }
 
@@ -101,44 +68,141 @@
 
     let index = 0;
     const interval = window.setInterval(() => {
-      bubble.textContent += response[index];
+
+      bubble.textContent += text[index] || "";
       index += 1;
       messagesEl.scrollTop = messagesEl.scrollHeight;
-      if (index >= response.length) {
+      if (index >= text.length) {
         window.clearInterval(interval);
       }
-    }, 18);
+    }, 16);
   }
 
-  function runDemo(text) {
-    const trimmed = text.trim();
-    if (!trimmed) return;
-
-    messagesEl.innerHTML = "";
-    addMessage(trimmed, "user");
-    simulateBotReply(trimmed);
-
-    const result = detectIntent(trimmed);
-    renderResults(result);
+  function addSelect(options, id, label) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "demo-form";
+    const select = document.createElement("select");
+    select.className = "demo-select";
+    select.id = id;
+    select.innerHTML = `<option value="">${label}</option>` +
+      options.map((option) => `<option value="${option}">${option}</option>`).join("");
+    wrapper.appendChild(select);
+    messagesEl.appendChild(wrapper);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return select;
   }
 
-  chips.forEach((chip, index) => {
-    chip.addEventListener("click", () => {
-      const text = chip.getAttribute("data-demo-text") || examples[index];
-      runDemo(text);
+  function addCheckboxes(items, name) {
+    const wrapper = document.createElement("div");
+    wrapper.className = "demo-form";
+    const list = document.createElement("div");
+    list.className = "demo-checkboxes";
+
+    items.forEach((item) => {
+      const label = document.createElement("label");
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.name = name;
+      checkbox.value = item;
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(item));
+      list.appendChild(label);
     });
-  });
+
+    wrapper.appendChild(list);
+    messagesEl.appendChild(wrapper);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return list;
+  }
+
+  function addButton(label, className = "btn btn--primary") {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = className;
+    button.textContent = label;
+    messagesEl.appendChild(button);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+    return button;
+  }
+
+  function startDemo() {
+    step = 1;
+    clearMessages();
+
+    addMessage("Hola, necesito un kinesiólogo\nEs para mi hijo, tiene bronquitis", "user");
+    addBotMessage("Hola 👋\nGracias por escribir a ConectaProIA.\n\nEntiendo tu preocupación 💙\nPara ayudarte mejor, primero necesito saber tu ubicación.");
+
+    setTimeout(() => {
+      addBotMessage("👉 Selecciona tu región:");
+      const select = addSelect(regions, "demoRegion", "Selecciona tu región");
+      select.addEventListener("change", () => {
+        if (!select.value || step !== 1) return;
+        addMessage(select.value, "user");
+        step = 2;
+        addBotMessage("Gracias 👍\n👉 Ahora selecciona tu comuna:");
+        const comunaSelect = addSelect(comunasBiobio, "demoComuna", "Selecciona tu comuna (Biobío)");
+        comunaSelect.addEventListener("change", () => {
+          if (!comunaSelect.value || step !== 2) return;
+          addMessage(comunaSelect.value, "user");
+          step = 3;
+          addBotMessage("Perfecto, gracias por la información 😊\n\nPor lo que me comentas, podría ser necesaria la atención de un kinesiólogo respiratorio pediátrico, quien podrá evaluar a tu hijo y definir el tratamiento adecuado.");
+          addBotMessage("Estoy revisando profesionales que:\n• Atiendan kinesiología respiratoria pediátrica\n• Tengan experiencia con niños\n• Atiendan en San Pedro de la Paz o alrededores\n\n⏳ Un momento, por favor…");
+
+          setTimeout(() => {
+            addBotMessage("Listo ✅\nEstos son profesionales que podrían ayudarte, según disponibilidad y experiencia en la zona:\n\n🫁 1. Kinesiólogo respiratorio pediátrico\n⭐ 4.8 / 5\nExperiencia en bronquitis y cuadros respiratorios infantiles\nAtención domiciliaria\nProfesional verificado\n\n🫁 2. Kinesióloga respiratoria\n⭐ 4.6 / 5\nAtención pediátrica\nExperiencia en manejo respiratorio infantil\nAtención particular\n\n🫁 3. Kine respiratorio integral (Kine 3)\n⭐ 4.4 / 5\nAtención a niños y adultos\nEvaluación respiratoria en domicilio\nExperiencia en cuadros agudos y seguimiento");
+
+            addBotMessage("👉 Selecciona uno o más profesionales con los que te gustaría ser contactado:");
+            const professionals = addCheckboxes(
+              [
+                "Kinesiólogo respiratorio pediátrico",
+                "Kinesióloga respiratoria",
+                "Kine respiratorio integral (Kine 3)"
+              ],
+              "demoPros"
+            );
+
+            addBotMessage("Antes de continuar, es importante que confirmes lo siguiente:\n\n🔹 Consentimiento de contacto\n(checkbox obligatorio)\n☐ Autorizo a ConectaProIA a compartir mis datos de contacto exclusivamente con los profesionales seleccionados, para que puedan comunicarse conmigo y coordinar la atención.");
+            const consentList = addCheckboxes(
+              [
+                "Autorizo a ConectaProIA a compartir mis datos de contacto exclusivamente con los profesionales seleccionados."
+              ],
+              "demoConsent"
+            );
+
+            const confirmButton = addButton("Confirmar selección", "btn btn--primary");
+            confirmButton.addEventListener("click", () => {
+              if (step !== 3) return;
+              const selectedPros = professionals.querySelectorAll("input:checked");
+              const consent = consentList.querySelector("input:checked");
+              if (selectedPros.length === 0 || !consent) {
+                addMessage("Selecciona al menos un profesional y autoriza el contacto para continuar.", "system");
+                return;
+              }
+
+              addMessage("☑ " + Array.from(selectedPros).map((el) => el.value).join("\n☑ ") + "\n☑ Autorizo el contacto", "user");
+              step = 4;
+              addBotMessage("Perfecto 👍\nGracias por tu confirmación.\n\n📨 Tu contacto ha sido entregado a los profesionales que seleccionaste, quienes podrán comunicarse contigo directamente para evaluar el caso y coordinar la atención.");
+              addBotMessage("🔹 Recuerda:\nConectaProIA actúa como intermediario.\nLa evaluación clínica, indicaciones y tratamiento son responsabilidad exclusiva del profesional tratante.\nLos valores, horarios y modalidad de atención se acuerdan directamente con el kinesiólogo/a.");
+              addBotMessage("Gracias por confiar en ConectaProIA 🤝\nSi necesitas apoyo con otro servicio en el futuro, puedes escribirnos cuando quieras.\n💙 Estaremos atentos por si necesitas algo más.");
+            });
+          }, 900);
+        });
+      });
+    }, 600);
+  }
+
+  function resetDemo() {
+    step = 0;
+    clearMessages();
+    addMessage("DEMO — Conversación ConectaProIA (kinesiología respiratoria pediátrica).", "system");
+  }
 
   runButton.addEventListener("click", () => {
-    runDemo(inputEl.value);
+    if (step === 0) startDemo();
   });
 
-  inputEl.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      runDemo(inputEl.value);
-    }
-  });
+  resetButton.addEventListener("click", resetDemo);
+
 
   if (!prefersReducedMotion && revealEl && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver(
