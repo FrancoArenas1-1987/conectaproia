@@ -1,6 +1,7 @@
 (function () {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const messagesEl = document.getElementById("demoChatMessages");
+
   const runButton = document.querySelector(".demo-run");
   const resetButton = document.querySelector(".demo-reset");
   const revealEl = document.querySelector(".reveal");
@@ -40,21 +41,26 @@
 
   function clearMessages() {
     messagesEl.innerHTML = "";
+
   }
 
   function addMessage(text, type) {
     const bubble = document.createElement("div");
     bubble.className = `chat-bubble chat-bubble--${type}`;
+
     bubble.innerHTML = text.replace(/\n/g, "<br>");
+
     messagesEl.appendChild(bubble);
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
+
 
   function addBotMessage(text, delay = 400) {
     if (prefersReducedMotion) {
       addMessage(text, "bot");
       return;
     }
+
     const bubble = document.createElement("div");
     bubble.className = "chat-bubble chat-bubble--bot";
     bubble.textContent = "";
@@ -62,6 +68,7 @@
 
     let index = 0;
     const interval = window.setInterval(() => {
+
       bubble.textContent += text[index] || "";
       index += 1;
       messagesEl.scrollTop = messagesEl.scrollHeight;
@@ -195,6 +202,7 @@
   });
 
   resetButton.addEventListener("click", resetDemo);
+
 
   if (!prefersReducedMotion && revealEl && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver(
